@@ -1,0 +1,243 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_related_dish_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_related_dish_title_create') %></p>
+  </div>
+  <section class="section-menu section-menu-related">
+    <div class="menu">
+      <h2><%= __('store_page_related_dish_title_create') %></h2>
+      <div class="box-menu">
+        <div class="box-item">
+          <label for=""><%= __('store_page_related_dish_lb_group_name') %></label>
+          <div class="custom-arrow">
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-detail">
+      <div class="box-menu-detail">
+        <div class="table-food">
+          <table>
+            <thead>
+              <th class="img-food"><%= __('store_page_related_dish_lb_image') %></th>
+              <th class="name-food"><%= __('store_page_related_dish_lb_name') %></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="img-food">
+                  <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                </td>
+                <td class="name-food">
+                  <button type="button" class="js-modalOpen" data-target="modalsearch">
+                    <span>Dish 1</span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                </td>
+                <td class="name-food">
+                  <button type="button" class="js-modalOpen" data-target="modalsearch">
+                    <span>Dish 2</span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                </td>
+                <td class="name-food">
+                  <button type="button" class="js-modalOpen" data-target="modalsearch">
+                    <span>Dish 3</span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                </td>
+                <td class="name-food">
+                  <button type="button" class="js-modalOpen" data-target="modalsearch">
+                    <span>Dish 4</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a href="./edit-menu.html" class="btn-add-menu">
+          <i class="fa-solid fa-plus"></i><span><%= __('store_page_related_dish_btn_add') %></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- popup main -->
+  <div class="modal search-modal js-modalCnt" id="modalsearch">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="item">
+          <label for=""><%= __('store_page_related_dish_modal_name_product') %></label>
+          <input type="text" />
+        </div>
+        <div class="item">
+          <label for=""><%= __('store_page_related_dish_modal_category') %></label>
+          <select name="" id="">
+            <option><%= __('store_page_related_dish_modal_choices') %></option>
+          </select>
+        </div>
+        <button type="button" class="c-btn js-modalOpen" data-target="modalcate">
+          <span><%= __('store_page_related_dish_btn_search') %></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- popup search category -->
+  <div class="modal menu-modal cate-modal js-modalCnt" id="modalcate">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">Category</a>
+          <a href="" class="item">subcategories</a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <span class="u-clr-blue">subcategory 1</span>
+            <button type="button" class="add js-modalOpen" data-target="modalmenu1">
+              <i class="fa-solid fa-plus"></i>
+              <span><%= __('store_page_related_dish_btn_add') %></span>
+            </button>
+          </div>
+          <div class="item">
+            <span class="u-clr-blue">subcategory 2</span>
+            <button type="button" class="add js-modalOpen" data-target="modalmenu1">
+              <i class="fa-solid fa-plus"></i>
+              <span><%= __('store_page_related_dish_btn_add') %></span>
+            </button>
+          </div>
+          <div class="item">
+            <span class="u-clr-blue">subcategory 3</span>
+            <button type="button" class="add added">
+              <i class="fa-solid fa-check"></i>
+              <span><%= __('store_page_related_dish_btn_added') %></span>
+            </button>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button type="button" class="js-modalClose"><span><%= __('store_page_related_dish_btn_cancel') %></span></button>
+          <button type="button" class="c-btn js-modalOpen" data-target="modalmenu1">
+            <span><%= __('store_page_related_dish_btn_save') %></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal menu-modal food-modal foodcate-modal js-modalCnt" id="modalmenu1">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">category</a>
+          <a href="" class="item">subcategories</a>
+          <a href="" class="item">dishes</a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 1</span>
+            </div>
+            <button type="button" class="add js-modalOpen" data-target="modalmenu1">
+              <i class="fa-solid fa-plus"></i>
+              <span><span><%= __('store_page_related_dish_btn_add') %></span></span>
+            </button>
+          </div>
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 2</span>
+            </div>
+            <button type="button" class="add js-modalOpen" data-target="modalmenu1">
+              <i class="fa-solid fa-plus"></i>
+              <span><span><%= __('store_page_related_dish_btn_add') %></span></span>
+            </button>
+          </div>
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 3</span>
+            </div>
+            <button type="button" class="add added">
+              <i class="fa-solid fa-check"></i>
+              <span><span><%= __('store_page_related_dish_btn_added') %></span></span>
+            </button>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button type="button" class="js-modalClose"><span><%= __('store_page_related_dish_btn_cancel') %></span></button>
+          <button type="button" class="c-btn js-modalOpen" data-target="modalmenu2">
+            <span><%= __('store_page_related_dish_btn_save') %></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal menu-modal food-modal foodcate-modal js-modalCnt" id="modalmenu2">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <h4>3 món ăn được tìm thấy cho "Chive".</h4>
+        <div class="box-item">
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>Dish 1</span>
+            </div>
+            <button type="button" class="add js-modalOpen" data-target="modalmenu1">
+              <i class="fa-solid fa-plus"></i>
+              <span><%= __('store_page_related_dish_btn_add') %></span>
+            </button>
+          </div>
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>Dish 2</span>
+            </div>
+            <button type="button" class="add added">
+              <i class="fa-solid fa-check"></i>
+              <span><%= __('store_page_related_dish_btn_added') %></span>
+            </button>
+          </div>
+          <div class="item">
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>Dish 3</span>
+            </div>
+            <button type="button" class="add added">
+              <i class="fa-solid fa-check"></i>
+              <span><%= __('store_page_related_dish_btn_added') %></span>
+            </button>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button type="button" class="js-modalClose"><span><%= __('store_page_related_dish_btn_cancel') %></span></button>
+          <button type="button" class="c-btn"><span><%= __('store_page_related_dish_btn_save') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup search name product -->
+</main>

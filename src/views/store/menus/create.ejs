@@ -1,0 +1,398 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_create_menus_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_create_menus_title') %></p>
+  </div>
+  <section class="section-edit-menu section-edit-menu-group">
+    <div class="group">
+      <h4><%= __('store_page_create_menus_title_basic_settings') %></h4>
+      <div class="edit-menu">
+        <div class="box-edit">
+          <div class="table-top">
+            <table>
+              <tbody>
+                <tr>
+                  <th><p><%= __('store_page_create_menus_lb_name') %></p></th>
+                  <td>
+                    <input type="text" />
+                    <button type="button" class="c-btn c-translate js-modalOpen" data-target="modaltranslate">
+                      <span><%= __('store_page_create_menus_btn_translate') %></span>
+                      <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th><p><%= __('store_page_create_menus_lb_type') %></p></th>
+                  <td class="tax">
+                    <select name="" id="">
+                      <option><%= __('store_page_create_menus_option_choices') %></option>
+                      <option value=""><%= __('store_page_create_menus_option_buffet') %></option>
+                      <option value=""><%= __('store_page_create_menus_option_normal') %></option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="btn-group">
+          <div class="select">
+            <select>
+              <option value=""><%= __('store_page_create_menus_option_public') %></option>
+              <option value=""><%= __('store_page_create_menus_option_private') %></option>
+            </select>
+          </div>
+          <button type="button" class="c-btn c-btn-custom"><span><%= __('store_page_create_menus_btn_save') %></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-menu-edit">
+    <h4><%= __('store_page_create_menus_settings_for_buffet') %></h4>
+    <div class="table-menu-edit">
+      <table>
+        <tbody>
+          <tr>
+            <th><p><%= __('store_page_create_menus_price_buffet') %></p></th>
+            <td>
+              <div class="box-menu-edit">
+                <div class="box-input">
+                  <span>¥</span>
+                  <input type="text" />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_consumption_tax_settings') %></p></th>
+            <td>
+              <div class="box-menu-edit">
+                <select name="" id="">
+                  <option value=""><%= __('store_page_create_menus_option_choices') %></option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_price_buffet_child') %></p></th>
+            <td>
+              <div class="box-menu-edit has-checkbox">
+                <div class="btn-checkb">
+                  <div class="btn-wrap">
+                    <input type="checkbox" name="checkbox" checked />
+                  </div>
+                  <label
+                    class="content-input"
+                    data-switch-on="<%= __('store_page_create_menus_switch_enabled') %>"
+                    data-switch-off="<%= __('store_page_create_menus_switch_disabled') %>"
+                  ></label>
+                </div>
+                <div class="box-input">
+                  <span>¥</span>
+                  <input type="text" />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_price_buffet_student') %></p></th>
+            <td>
+              <div class="box-menu-edit has-checkbox">
+                <div class="btn-checkb">
+                  <div class="btn-wrap">
+                    <input type="checkbox" name="checkbox" checked />
+                  </div>
+                  <label
+                    class="content-input"
+                    data-switch-on="<%= __('store_page_create_menus_switch_enabled') %>"
+                    data-switch-off="<%= __('store_page_create_menus_switch_disabled') %>"
+                  ></label>
+                </div>
+                <div class="box-input">
+                  <span>¥</span>
+                  <input type="text" />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_price_buffet_senior') %></p></th>
+            <td>
+              <div class="box-menu-edit has-checkbox">
+                <div class="btn-checkb">
+                  <div class="btn-wrap">
+                    <input type="checkbox" name="checkbox" />
+                  </div>
+                  <label
+                    class="content-input"
+                    data-switch-on="<%= __('store_page_create_menus_switch_enabled') %>"
+                    data-switch-off="<%= __('store_page_create_menus_switch_disabled') %>"
+                  ></label>
+                </div>
+                <div class="box-input">
+                  <span>¥</span>
+                  <input type="text" />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_time_buffet') %></p></th>
+            <td>
+              <div class="box-menu-edit has-checkbox">
+                <div class="btn-checkb">
+                  <div class="btn-wrap">
+                    <input type="checkbox" name="checkbox" checked />
+                  </div>
+                  <label
+                    class="content-input"
+                    data-switch-on="<%= __('store_page_create_menus_switch_enabled') %>"
+                    data-switch-off="<%= __('store_page_create_menus_switch_disabled') %>"
+                  ></label>
+                </div>
+                <div class="box-input not-jpy">
+                  <input type="text" />
+                  <span><%= __('store_page_create_menus_minutes') %></span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><p><%= __('store_page_create_menus_last_order_buffet') %></p></th>
+            <td>
+              <div class="box-menu-edit has-checkbox">
+                <div class="btn-checkb">
+                  <div class="btn-wrap">
+                    <input type="checkbox" name="checkbox" checked />
+                  </div>
+                  <label
+                    class="content-input"
+                    data-switch-on="<%= __('store_page_create_menus_switch_enabled') %>"
+                    data-switch-off="<%= __('store_page_create_menus_switch_disabled') %>"
+                  ></label>
+                </div>
+                <div class="box-input not-jpy">
+                  <input type="text" />
+                  <span><%= __('store_page_create_menus_minutes') %></span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="section-group-list section-edit-group-list">
+    <h4><%= __('store_page_create_menus_title_menu_categories') %></h4>
+    <div class="group-list">
+      <h5><%= __('store_page_create_menus_category_name') %></h5>
+      <ul class="list-ul">
+        <li class="js-modalOpen" data-target="modalmenu">
+          <button type="button" class="change-position"><i class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
+          <p class="u-clr-blue">Category 1</p>
+          <button type="button" class="btn-delete">
+            <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_menus_btn_delete') %></span>
+          </button>
+        </li>
+        <li class="js-modalOpen" data-target="modalmenu">
+          <button type="button" class="change-position"><i class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
+          <p class="u-clr-blue">Category 2</p>
+          <button type="button" class="btn-delete">
+            <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_menus_btn_delete') %></span>
+          </button>
+        </li>
+
+        <li>
+          <select name="" id="">
+            <option><%= __('store_page_create_menus_option_choices') %></option>
+          </select>
+        </li>
+      </ul>
+      <button type="button" class="add-new">
+        <i class="fa-solid fa-plus"></i><span><%= __('store_page_create_menus_btn_create_new') %></span>
+      </button>
+    </div>
+  </section>
+  <div class="text-center edit-group">
+    <button type="button" class="c-btn js-modalOpen" data-target="modaldelete">
+      <span><%= __('store_page_create_menus_btn_delete') %></span>
+    </button>
+  </div>
+  <!-- Popup  -->
+  <div class="modal delete-modal js-modalCnt" id="modaldelete">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <p class="u-fw-b u-fz-20 u-align-ctr"><strong>メニュー名A</strong><%= __('store_page_create_menus_will_be_deleted') %></p>
+
+        <button type="button" class="c-btn btn-accept">
+          <span class="u-fw-b u-fz-20"><%= __('store_page_create_menus_btn_delete') %></span>
+        </button>
+        <button type="button" class="btn-cancel">
+          <span><%= __('store_page_create_menus_btn_cancel') %></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="modal translate-modal js-modalCnt" id="modaltranslate">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <h4><%= __('store_page_create_menus_translate') %></h4>
+        <% auth?.store?.all_language.forEach(element => {if (!(auth?.store?.lang === element)){ %>
+        <div class="item">
+          <label for=""><%= __(`store_header_option_${element}`) %></label>
+          <input type="text" />
+        </div>
+        <% }}); %>
+        <div class="group-btn">
+          <button><span><%= __('store_page_create_menus_btn_cancel') %></span></button>
+          <button type="button" class="c-btn"><span><%= __('store_page_create_menus_btn_save') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal menu-modal js-modalCnt" id="modalmenu">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">Category 1</a>
+          <a href="" class="item"><%= __('store_page_create_menus_title_subcategory') %></a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">subcategory 1</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" />
+              </div>
+            </div>
+            <span class="name">subcategory 2</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">subcategory 3</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">subcategory 4</span>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button type="button" class="js-modalClose"><span><%= __('store_page_create_menus_btn_cancel') %></span></button>
+          <button type="button" class="c-btn js-modalOpen" data-target="modalmenu1">
+            <span><%= __('store_page_create_menus_btn_keep') %></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal menu-modal food-modal js-modalCnt" id="modalmenu1">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">Category 1</a>
+          <a href="" class="item"><%= __('store_page_create_menus_title_subcategory') %></a>
+          <a href="" class="item"><%= __('store_page_create_menus_title_dish') %></a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 1</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 2</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div
+                class="btn-wrap"
+                data-switch-on="<%= __('store_page_create_menus_switch_display') %>"
+                data-switch-off="<%= __('store_page_create_menus_switch_hidden') %>"
+              >
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>dish 3</span>
+            </div>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button type="button" class="js-modalClose"><span><%= __('store_page_create_menus_btn_cancel') %></span></button>
+          <button type="button" class="c-btn"><span><%= __('store_page_create_menus_btn_keep') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  var content = '<%= content %>'
+</script>

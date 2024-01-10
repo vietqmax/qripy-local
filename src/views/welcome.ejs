@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+
+<body>
+  <ul class="dropdown-menu language">
+    <li><a href="/change-lang/en">English</a></li>
+    <li><a href="/change-lang/vi">Vietnamese</a></li>
+    <li><a href="/change-lang/ja">Japanese</a></li>
+    <li><a href="/change-lang/ko">Korean</a></li>
+  </ul>
+
+  <p><%= __('hello') %></p>
+  <p><%= __('store_header_lb_logout') %></p>
+  <script>
+    var appUrl = 'http://localhost:3001'
+    let socket = io.connect(appUrl, {
+      forceNew: true,
+      transports: ['polling'],
+    })
+
+    socket.on('hello_id', () => {
+      console.log('Hello')
+    })
+  </script>
+</body>
+
+</html>

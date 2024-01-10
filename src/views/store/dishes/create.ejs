@@ -1,0 +1,301 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_create_dish_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_create_dish_title') %></p>
+  </div>
+  <section class="section-edit-menu">
+    <aside class="optional">
+      <div class="optional-box">
+        <div class="optional-item">
+          <h4><%= __('store_page_create_dish_category') %></h4>
+          <ul class="optional-ul" id="accordion">
+            <li class="optional-li dropdown not-show">
+              <div class="radio">
+                <input type="radio" id="radio1" />
+                <label for="radio1">Category 1</label>
+                <i class="fa-solid fa-chevron-up"></i>
+                <button type="button" class="collapse"></button>
+              </div>
+              <ul>
+                <li>
+                  <div class="radio">
+                    <input type="radio" id="radio1-1" name="radio-group" />
+                    <label for="radio1-1">subcategory 1</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="radio">
+                    <input type="radio" id="radio1-2" name="radio-group" />
+                    <label for="radio1-2">subcategory 2</label>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="optional-li dropdown not-show">
+              <div class="radio">
+                <input type="radio" id="radio2" />
+                <label for="radio2">Category 2</label>
+                <i class="fa-solid fa-chevron-up"></i>
+                <button type="button" class="collapse"></button>
+              </div>
+              <ul>
+                <li>
+                  <div class="radio">
+                    <input type="radio" id="radio2-1" name="radio-group-2" />
+                    <label for="radio2-1">subcategory 1</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="radio">
+                    <input type="radio" id="radio2-2" name="radio-group-2" />
+                    <label for="radio2-2">subcategory 2</label>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="bottom-box">
+            <button type="button" class="c-btn"><span><%= __('store_page_create_dish_btn_action') %></span></button>
+          </div>
+        </div>
+
+        <!-- <div class="optional-item">
+          <h4><%= __('store_page_create_dish_tag') %></h4>
+          <ul class="optional-ul ul-checkbox" id="accordion">
+            <li class="optional-li">
+              <div class="checkbox">
+                <input type="checkbox" id="checkbox3" />
+                <label for="checkbox3"><%= __('store_page_create_dish_tag_new') %></label>
+              </div>
+            </li>
+            <li class="optional-li">
+              <div class="checkbox">
+                <input type="checkbox" id="checkbox2" />
+                <label for="checkbox2"><%= __('store_page_create_dish_tag_seasonal') %></label>
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-box">
+            <button class="c-btn"><span><%= __('store_page_create_dish_btn_action') %></span></button>
+          </div>
+        </div> -->
+
+        <div class="optional-item">
+          <h4><%= __('store_page_create_dish_note') %></h4>
+          <ul class="optional-ul no-data" id="accordion">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+          </ul>
+        </div>
+        <div class="optional-item date">
+          <ul class="optional-ul date-ul">
+            <li class="optional-li date">
+              <span><%= __('store_page_create_dish_note_registration_date') %></span>
+              <span>2023-08-10</span>
+            </li>
+            <!-- <li class="optional-li date">
+              <span><%= __('store_page_create_dish_note_update_date') %></span>
+              <span>2023-08-10</span>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <div class="group">
+      <div class="edit-menu">
+        <div class="box-edit">
+          <div class="table-top">
+            <table>
+              <tbody>
+                <tr>
+                  <th><p><%= __('store_page_create_dish_lb_name') %></p></th>
+                  <td>
+                    <input type="text" />
+                    <button type="button" class="c-btn c-translate js-modalOpen" data-target="modaltranslate">
+                      <span><%= __('store_page_create_dish_btn_translate') %></span>
+                      <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <p><%= __('store_page_create_dish_lb_image') %></p>
+                    <span>
+                      <%= __('store_page_create_dish_recommended_size') %><br />
+                      <%= __('store_page_create_dish_recommended_size_px') %><br />
+                      <%= __('store_page_create_dish_recommended_size_MB') %>
+                    </span>
+                  </th>
+                  <td>
+                    <div class="file file-drop-area">
+                      <img src="<%= appUrl %>/stores/img/icon/icon_upload.svg" alt="" />
+                      <p>
+                        <%= __('store_page_create_dish_drag_and_drop_images_or') %>
+                        <span class="here"><%= __('store_page_create_dish_upload_the_file_here') %></span>
+                      </p>
+                      <input type="file" class="file-input" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <p><%= __('store_page_create_dish_lb_description') %></p>
+                  </th>
+                  <td>
+                    <textarea></textarea>
+                    <button type="button" class="c-btn c-translate js-modalOpen" data-target="modaltranslate">
+                      <span><%= __('store_page_create_dish_btn_translate') %></span>
+                      <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th><p><%= __('store_page_create_dish_lb_price') %></p></th>
+                  <td>
+                    <div class="currency">
+                      <span>¥</span>
+                      <input type="number" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th><p><%= __('store_page_create_dish_lb_tax') %></p></th>
+                  <td class="tax">
+                    <select name="" id="">
+                      <option><%= __('store_page_create_dish_choices') %></option>
+                      <option value="">店内10％</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="setting-menu">
+            <div class="setting-dropdown">
+              <span><%= __('store_page_create_dish_menu_option') %></span> <i class="fa-solid fa-chevron-up"></i>
+            </div>
+            <div class="box-setting not-show">
+              <ul class="">
+                <li>
+                  <span>Dish option 1</span>
+                  <button type="button" class="btn-delete">
+                    <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_dish_btn_delete') %></span>
+                  </button>
+                </li>
+                <li>
+                  <span>Dish option 2</span>
+                  <button type="button" class="btn-delete">
+                    <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_dish_btn_delete') %></span>
+                  </button>
+                </li>
+                <li>
+                  <select name="" id="">
+                    <option><%= __('store_page_create_dish_choices') %></option>
+                    <option value=""></option>
+                  </select>
+                </li>
+              </ul>
+              <button type="button" class="add-new">
+                <i class="fa-solid fa-plus"></i><span><%= __('store_page_create_dish_btn_plus') %></span>
+              </button>
+            </div>
+          </div>
+          <div class="setting-menu">
+            <div class="setting-dropdown">
+              <span><%= __('store_page_create_dish_relate_dish') %></span> <i class="fa-solid fa-chevron-up"></i>
+            </div>
+            <div class="box-setting not-show">
+              <ul class="">
+                <li>
+                  <span>Related dish 1</span>
+                  <button type="button" class="btn-delete">
+                    <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_dish_btn_delete') %></span>
+                  </button>
+                </li>
+                <li>
+                  <span>Related dish 2</span>
+                  <button type="button" class="btn-delete">
+                    <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_create_dish_btn_delete') %></span>
+                  </button>
+                </li>
+                <li>
+                  <select name="" id="">
+                    <option><%= __('store_page_create_dish_choices') %></option>
+                    <option value=""></option>
+                  </select>
+                </li>
+              </ul>
+              <button type="button" class="add-new">
+                <i class="fa-solid fa-plus"></i><span><%= __('store_page_create_dish_btn_plus') %></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <div class="select">
+            <select class="select-content">
+              <option value=""><%= __('store_page_create_dish_display_normal') %></option>
+              <option value=""><%= __('store_page_create_dish_display_recommended') %></option>
+            </select>
+          </div>
+          <div class="select">
+            <select>
+              <option value=""><%= __('store_page_create_dish_display_public') %></option>
+              <option value=""><%= __('store_page_create_dish_display_private') %></option>
+            </select>
+          </div>
+          <button type="button" class="c-btn c-btn-custom"><span><%= __('store_page_create_dish_btn_save') %></span></button>
+        </div>
+      </div>
+      <div class="text-center box-button">
+        <button type="button" class="c-btn c-btn-delete js-modalOpen" data-target="modaldelete">
+          <span><%= __('store_page_create_dish_btn_delete') %></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup  -->
+  <div class="modal delete-modal js-modalCnt" id="modaldelete">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <p class="u-fw-b u-fz-20 u-align-ctr"><strong>メニュー名A</strong><%= __('store_page_create_dish_modal_delete') %></p>
+        <button type="button" class="c-btn btn-accept">
+          <span class="u-fw-b u-fz-20"><%= __('store_page_create_dish_btn_delete') %></span>
+        </button>
+        <button type="button" class="btn-cancel">
+          <span><%= __('store_page_create_dish_btn_cancel') %></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal translate-modal js-modalCnt" id="modaltranslate">
+    <div class="modal__wrap">
+      <button type="button" type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <h4><%= __('store_modal_translate_title') %></h4>
+        <% auth?.store?.other_language.forEach(element => {if (!(auth?.store?.lang === element)){ %>
+        <div class="item">
+          <label for=""><%= __(`store_header_option_${element}`) %></label>
+          <input type="text" name="dish_option_item_name_<%= element %>" id="dish_option_item_name_<%= element %>" />
+        </div>
+        <% }}); %>
+        <div class="group-btn">
+          <button type="button" class="cancel-btn"><span><%= __('store_page_create_dish_btn_save') %></span></button>
+          <button type="button" class="c-btn save-btn"><span><%= __('store_page_create_dish_btn_cancel') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  var content = '<%= content %>'
+</script>

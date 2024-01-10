@@ -1,0 +1,224 @@
+@import url('../../../libs/fa64/css/all.min.css');
+.login-box .logo {
+  height: 70px;
+  width: auto;
+  max-width: 100%;
+}
+
+.width-120 {
+  width: 120px !important;
+}
+
+.table-input td {
+  text-align: right;
+}
+
+.table thead th {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card-body.p-0 .table tbody > tr > td:last-of-type,
+.card-body.p-0 .table tbody > tr > th:last-of-type,
+.card-body.p-0 .table tfoot > tr > td:last-of-type,
+.card-body.p-0 .table tfoot > tr > th:last-of-type,
+.card-body.p-0 .table thead > tr > td:last-of-type,
+.card-body.p-0 .table thead > tr > th:last-of-type {
+  padding-right: 0.75rem;
+}
+
+.card-body.p-0 .table tbody > tr > td:first-of-type,
+.card-body.p-0 .table tbody > tr > th:first-of-type,
+.card-body.p-0 .table tfoot > tr > td:first-of-type,
+.card-body.p-0 .table tfoot > tr > th:first-of-type,
+.card-body.p-0 .table thead > tr > td:first-of-type,
+.card-body.p-0 .table thead > tr > th:first-of-type {
+  padding-left: 0.75rem;
+}
+
+.table-bordered-card tr th:first-child,
+.table-bordered-card tr td:first-child {
+  border-left: 0;
+}
+
+.table-bordered-card tr th:last-child,
+.table-bordered-card tr td:last-child {
+  border-right: 0;
+}
+
+.required:before {
+  content: '※';
+  margin-right: 2px;
+  color: red;
+  font-weight: normal;
+}
+
+.postal {
+  display: flex;
+}
+
+.postal .form-control {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  transition: background-color linear;
+}
+
+.list-group-item:hover {
+  background-color: rgb(148, 170, 173);
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
+
+.fixed-label {
+  width: 132px;
+}
+
+.required:before {
+  content: '※';
+  margin-right: 2px;
+  color: red;
+  font-weight: normal;
+}
+
+.toast-notification {
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: #fff;
+  background: #dc3545;
+  display: inline-block;
+  position: fixed;
+  top: -56px;
+  right: 5px;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+  z-index: 1111;
+}
+
+.toast-notification:before {
+  content: '※';
+  margin-right: 2px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.swal2-popup {
+  font-size: 0.875rem !important;
+  width: 30em !important;
+}
+
+.badge {
+  font-weight: normal;
+}
+
+.imgBox {
+  position: relative;
+}
+
+.imgWrap {
+  width: 100%;
+  height: 200px;
+  cursor: pointer;
+  background: #f1f1f1;
+  color: #d73925;
+  overflow: hidden;
+  text-align: center;
+  display: table;
+}
+
+.imgWrap b {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imgDel {
+  background: red;
+  color: white;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.imgDel .fa.fa-times {
+  letter-spacing: -1px;
+}
+
+.imgElement {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.imgElement .img {
+  max-width: 100%;
+  max-height: 200px;
+  visibility: visible;
+}
+
+.custom-switch.custom-switch-on-success .custom-control-input:checked ~ .custom-control-label::before,
+.custom-switch.custom-switch-off-danger .custom-control-input ~ .custom-control-label::before,
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: transparent;
+  cursor: pointer;
+}
+
+small {
+  color: #9fa6bf;
+  font-size: 9pt;
+  margin-top: 5px;
+}
+
+.fa-ul {
+  margin-left: 0;
+}
+
+.fa-ul > li {
+  padding-left: 1.05rem;
+}
+
+.fa-li {
+  left: 0;
+  text-align: left;
+  width: auto;
+}
+
+#sortable-product tr td:first-child {
+  cursor: pointer;
+}
+
+#sortable-product tr.ui-sortable-helper td {
+  border-top: 0;
+}
+
+.invalid-field {
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+}
+
+.invalid-message {
+  color: red;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+
+@media (min-width: 576px) {
+  .login-box {
+    width: 100%;
+    max-width: 576px;
+  }
+}

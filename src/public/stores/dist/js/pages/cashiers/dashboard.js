@@ -1,0 +1,3 @@
+/**
+ * Cashier Dashboard Handle
+ */

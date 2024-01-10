@@ -1,0 +1,127 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn"><i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_dishes_btn_back') %></span></a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_dishes_title_main') %></p>
+  </div>
+  <section class="section-menu">
+    <div class="menu">
+      <h2><%= __('store_page_dishes_title_main') %></h2>
+      <div class="box-menu">
+        <div class="box-item">
+          <label for=""><%= __('store_page_dishes_lb_keyword') %></label>
+          <div class="custom-arrow">
+            <input type="text" />
+          </div>
+        </div>
+        <div class="box-item">
+          <label for=""><%= __('store_page_dishes_lb_category') %></label>
+          <div class="custom-arrow">
+            <select name="" id="">
+              <option value="">Danh mục 1</option>
+              <option value="">Danh mục 2</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="c-btn"><span><%= __('store_page_dishes_btn_search') %></span></button>
+      </div>
+    </div>
+    <div class="menu-detail">
+      <div class="sort">
+        <h4><%= __('store_page_dishes_lb_sort') %></h4>
+        <div class="sort-box">
+          <div class="sort-item">
+            <select class="select-content">
+              <option value=""><%= __('store_page_dishes_alphabetical') %></option>
+            </select>
+          </div>
+          <div class="sort-item small">
+            <select class="select-content">
+              <option value=""><%= __('store_page_dishes_ascending') %></option>
+              <option value=""><%= __('store_page_dishes_decrease') %></option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="box-menu-detail">
+        <a href="<%= `${appUrl}/store/${lang}/dish/create` %>" class="btn-add-menu">
+          <i class="fa-solid fa-plus"></i><span><%= __('store_page_dishes_btn_add') %></span>
+        </a>
+        <div class="table-food">
+          <table>
+            <thead>
+              <th class="img-food"><%= __('store_page_dishes_lb_image') %></th>
+              <th class="name-food"><%= __('store_page_dishes_lb_name') %></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="img-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                  </a>
+                </td>
+                <td class="name-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <span class="u-clr-blue">Dish 1</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                  </a>
+                </td>
+                <td class="name-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <span class="u-clr-blue">Dish 2</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                  </a>
+                </td>
+                <td class="name-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <span class="u-clr-blue">Dish 3</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="img-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                  </a>
+                </td>
+                <td class="name-food">
+                  <a href="<%= `${appUrl}/store/${lang}/dish/edit` %>">
+                    <span class="u-clr-blue">Dish 4</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <ul>
+              <li>
+                <a href="" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+              </li>
+              <li class="current"><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <span>...</span>
+              <li><a href="">8</a></li>
+              <li>
+                <a href="" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+  var content = '<%= content %>'
+</script>

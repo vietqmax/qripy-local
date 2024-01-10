@@ -1,0 +1,112 @@
+<main class="main-cnt main-half">
+  <section class="section-information">
+    <ul class="items">
+      <li class="item">
+        <p class="u-fz-16-xl-14 u-fw-b">今日の売り上げ</p>
+        <p class="price">
+          <span>¥</span>
+          <span class="number">290,000</span>
+        <div class="growth">
+          <span class="u-fz-14">前月同日比: 105%</span>
+          <div class="arrow"></div>
+        </div>
+        </p>
+      </li>
+      <li class="item">
+        <p class="u-fz-16-xl-14 u-fw-b">今日の来店人数</p>
+        <p class="price">
+          <span class="number">50</span>
+          <span>人</span>
+        <div class="growth down">
+          <span class="u-fz-14">前月同日比：85%</span>
+          <div class="arrow"></div>
+        </div>
+        </p>
+      </li>
+      <li class="item">
+        <p class="u-fz-16-xl-14 u-fw-b">今日の客単価</p>
+        <p class="price">
+          <span>¥</span>
+          <span class="number">5,800</span>
+        <div class="growth">
+          <span class="u-fz-14">前月同日比: 110%</span>
+          <div class="arrow"></div>
+        </div>
+        </p>
+      </li>
+    </ul>
+    <div class="box-chart">
+      <h2>店舗データ詳細</h2>
+      <div class="select">
+        <div class="custom-arrow">
+          <select name="" id="">
+            <option value="">店舗データ</option>
+            <option value="">売り上げ</option>
+            <option value="">来店人数</option>
+            <option value="">客単価</option>
+          </select>
+        </div>
+      </div>
+      <ul class="items">
+        <li class="item">
+          <p class="u-fz-16-xl-14 u-fw-b">今日の売り上げ</p>
+          <p class="price">
+            <span>¥</span>
+            <span class="number">19,800</span>
+          <div class="growth">
+            <span class="u-fz-14">前日比：110％</span>
+            <div class="arrow"></div>
+          </div>
+          </p>
+        </li>
+        <li class="item">
+          <p class="u-fz-16-xl-14 u-fw-b">今週の売り上げ</p>
+          <p class="price">
+            <span>¥</span>
+            <span class="number">19,800</span>
+          <div class="growth down">
+            <span class="u-fz-14">前週比：60％</span>
+            <div class="arrow"></div>
+          </div>
+          </p>
+        </li>
+        <li class="item">
+          <p><%= __('store_header_lb_logout') %></p>
+          <p class="u-fz-16-xl-14 u-fw-b">今月の売り上げ</p>
+          <p class="price">
+            <span>¥</span>
+            <span class="number">19,800</span>
+          <div class="growth">
+            <span class="u-fz-14">前月比：105％</span>
+            <div class="arrow"></div>
+          </div>
+          </p>
+        </li>
+      </ul>
+      <div class="tab-chart">
+        <div class="top-tabs">
+          <a class="nav-link active" id="id-mana1">時間</a>
+          <a class="nav-link" id="id-mana2">週間</a>
+          <a class="nav-link" id="id-mana3">月間</a>
+          <a class="nav-link" id="id-mana4">年間</a>
+        </div>
+        <div class="tab-content">
+          <div class="tab-item id-mana1 active">
+            <div class="box-content">
+              <canvas id="chart01"></canvas>
+            </div>
+          </div>
+          <div class="tab-item id-mana2">
+            週間
+          </div>
+          <div class="tab-item id-mana3">
+            月間
+          </div>
+          <div class="tab-item id-mana4">
+            年間
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

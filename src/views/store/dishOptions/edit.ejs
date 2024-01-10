@@ -1,0 +1,190 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="<%= `${appUrl}/store/${lang}/dish-option` %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_dish_option_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_dish_option_title_edit') %></p>
+  </div>
+  <section class="section-menu section-menu-options">
+    <form id="dish-option-edit" action="<%= `${appUrl}/store/${lang}/dish-option/${dishOptionData.id}` %>" method="PUT" enctype="multipart/form-data">
+      <div class="menu">
+        <h2><%= __('store_page_dish_option_title_edit') %></h2>
+        <div class="box-menu">
+          <div class="box-item">
+            <label for="dish_option_name"><%= __('store_page_dish_option_name') %></label>
+            <div class="custom-arrow">
+              <input type="text" name="dish_option_name[<%= auth.store.lang %>]" id="dish_option_name" value="<%= dishOptionData.DishOptionTranslates[auth.store.lang].name %>" />
+              <% if(auth.store.is_translate && auth.store.other_language) { %>
+              <% auth?.store?.other_language.forEach(element => { %>
+              <input type="hidden" name="dish_option_name[<%= element %>]" class="dish_option_name_translate" value="<%= dishOptionData.DishOptionTranslates[element].name %>" />
+              <% }) %>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-options-detail">
+        <h4><%= __('store_page_dish_option_name_options') %></h4>
+        <div class="table">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <p><%= __('store_page_dish_option_name_display') %></p>
+                </th>
+                <td>
+                  <input type="text" name="dish_option_name_display[<%= auth.store.lang %>]" id="dish_option_name_display" value="<%= dishOptionData.DishOptionTranslates[auth.store.lang].label %>" />
+                  <% if(auth.store.is_translate) { %>
+                  <button type="button" class="c-btn c-translate js-modalOpen dish_option_name_display" data-target="dish_option_name_display_translate">
+                    <span><%= __('store_page_category_translate') %></span>
+                    <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" />
+                  </button>
+                  <% } %>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p><%= __('store_page_dish_option_type_display') %></p>
+                </th>
+                <td>
+                  <select name="display" id="display">
+                    <option value="list" <%= dishOptionData.display === 'list' ? 'selected' : '' %>><%= __('store_page_dish_option_type_display_list') %></option>
+                    <option value="grid" <%= dishOptionData.display === 'grid' ? 'selected' : '' %>><%= __('store_page_dish_option_type_display_image') %></option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box-choices" data-text-delete="<%= __('store_page_dish_option_btn_delete') %>">
+          <h4><%= __('store_page_dish_option_choices') %></h4>
+          <ul class="box-item-choices" id="box-item-choices">
+            <% dishOptionData.items.forEach((item, index) => { %>
+            <li id="item_<%= item.id %>">
+              <input type="hidden" name="items[<%= index %>][id]" value="<%= item.id %>">
+              <% for (const langCode in item.DishOptionItemTranslates) { %>
+              <input type="hidden" name="items[<%= index %>][text][<%= langCode %>]" value="<%= item.DishOptionItemTranslates[langCode].name %>" id="text_<%= item.DishOptionItemTranslates[langCode].id %>" data-lang="<%= langCode %>" data-label="<%= __(`store_header_option_${langCode}`) %>" class="dish_option_item_for_edit">
+              <input type="hidden" name="items[<%= index %>][translateId][<%= langCode %>]" value="<%= item.DishOptionItemTranslates[langCode].id %>">
+              <% } %>
+              <input type="hidden" name="items[<%= index %>][img]" value="<%= item.img %>" class="dish_option_item_for_edit_img">
+              <button class="change-position" type="button"><i class="fa-solid fa-arrow-right-arrow-left fa-rotate-90" aria-hidden="true"></i></button>
+              <p><%= item.DishOptionItemTranslates[lang].name %></p>
+              <button class="option" type="button"><i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i></button>
+              <div class="box-option">
+                <button class="edit" type="button"><i class="fa-solid fa-pen"></i><span><%= __('store_page_dish_option_btn_edit') %></span></button>
+                <button class="delete-edit" type="button"><i class="fa-solid fa-trash-can" aria-hidden="true"></i><span><%= __('store_page_dish_option_btn_delete') %></span></button>
+              </div>
+            </li>
+            <% }) %>
+          </ul>
+          <div class="translate">
+            <div class="translate-item">
+              <input type="text" name="dish_option_item_name[<%= auth.store.lang %>]" id="dish_option_item_name" class="get_dish_option_item_name" />
+              <% if(auth.store.is_translate) { %>
+              <button type="button" class="c-btn c-translate js-modalOpen dish_option_item_name" data-target="dish_option_item_name_translate" disabled>
+                <span><%= __('store_page_category_translate') %></span>
+                <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+              </button>
+              <% } %>
+              <button class="btn-add-item" type="button" disabled>
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                <span><%= __('store_page_dish_option_btn_create_new') %></span>
+              </button>
+            </div>
+            <div class="drop-area">
+              <div class="translate-item file file-drop-area drop-area-img" onclick="$('#chooseImg').click()" ondrop="uploadImgDrop(event, '<%= appUrl %>/store/<%= lang %>/dish-option/upload-img', 'img')">
+                <img src="<%= appUrl %>/stores/img/icon/icon_upload.svg" />
+                <p>
+                  <%= __('store_page_dish_option_drag_and_drop_images_or') %>
+                  <span class="here"> <%= __('store_page_dish_option_upload_the_file_here') %></span>
+                </p>
+              </div>
+              <input type="file" name="uploadFileImg" accept="image/*" id="chooseImg" class="file-input" onchange="uploadImg('<%= appUrl %>/store/<%= lang %>/dish-option/upload-img', 'img', this)" style="display: none" />
+              <input type="hidden" name="img" class="imgUrl" />
+              <div class="img-preview"></div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="c-btn c-btn-custom"><span><%= __('store_page_dish_option_btn_save') %></span></button>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <% if(auth.store.is_translate && auth.store.other_language) { %>
+      <div class="modal translate-modal js-modalCnt" id="dish_option_name_display_translate">
+        <div class="modal__wrap">
+          <button type="button" class="modal__close js-modalClose">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="bell-modal__cnt">
+            <h4><%= __('store_page_category_translate') %></h4>
+            <% auth?.store?.other_language.forEach(element => { %>
+            <div class="item">
+              <label for="dish_option_name_display_translate_<%= element %>"><%= __(`store_header_option_${element}`) %></label>
+              <input type="text" name="dish_option_name_display[<%= element %>]" id="dish_option_name_display_translate_<%= element %>" value="<%= dishOptionData.DishOptionTranslates[element].label %>" />
+            </div>
+            <% }) %>
+            <div class="group-btn">
+              <button type="button" class="cancel-btn"><span><%= __('store_page_dish_option_btn_cancel') %></span></button>
+              <button type="button" class="c-btn js-modalClose"><span><%= __('store_page_dish_option_btn_save') %></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </form>
+    <% if(auth.store.is_translate && auth.store.other_language) { %>
+    <div class="modal translate-modal js-modalCnt" id="dish_option_item_name_translate">
+      <div class="modal__wrap">
+        <button type="button" class="modal__close js-modalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <form action="<%= `${appUrl}/store/${lang}/dish-option/validation-item-translate` %>" method="POST">
+          <div class="bell-modal__cnt">
+            <h4><%= __('store_page_category_translate') %></h4>
+            <% auth?.store?.other_language.forEach(element => { %>
+            <div class="item">
+              <label for="dish_option_item_name_translate_<%= element %>"><%= __(`store_header_option_${element}`) %></label>
+              <input type="text" name="dish_option_item_name[<%= element %>]" id="dish_option_item_name_translate_<%= element %>" class="get_dish_option_item_name" />
+            </div>
+            <% }) %>
+            <div class="group-btn">
+              <button type="button" class="cancel-btn"><span><%= __('store_page_dish_option_btn_cancel') %></span></button>
+              <button type="submit" class="c-btn save-btn"><span><%= __('store_page_dish_option_btn_save') %></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% } %>
+    <div class="modal translate-modal js-modalCnt" id="dish_option_edit_item">
+      <div class="modal__wrap">
+        <button type="button" class="modal__close js-modalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <form action="<%= `${appUrl}/store/${lang}/dish-option/validation-item-translate` %>" method="POST">
+          <div class="bell-modal__cnt">
+            <h4><%= __('store_page_category_translate') %></h4>
+            <div id="dish_option_edit_item_content"></div>
+            <div class="drop-area drop-area-init">
+              <div class="translate-item file file-drop-area drop-area-img" onclick="$('#chooseImgEdit').click()" ondrop="uploadImgDrop(event, '<%= appUrl %>/store/<%= lang %>/dish-option/upload-img', 'img')">
+                <img src="<%= appUrl %>/stores/img/icon/icon_upload.svg" />
+                <p>
+                  <%= __('store_page_dish_option_drag_and_drop_images_or') %>
+                  <span class="here"> <%= __('store_page_dish_option_upload_the_file_here') %></span>
+                </p>
+              </div>
+              <input type="file" name="uploadFileImg" accept="image/*" id="chooseImgEdit" class="file-input" onchange="uploadImg('<%= appUrl %>/store/<%= lang %>/dish-option/upload-img', 'img', this)" style="display: none" />
+              <input type="hidden" name="img" class="imgUrl" />
+              <div class="img-preview"></div>
+            </div>
+            <div class="group-btn">
+              <button type="button" class="cancel-btn"><span><%= __('store_page_dish_option_btn_cancel') %></span></button>
+              <button type="submit" class="c-btn btn-edit-item"><span><%= __('store_page_dish_option_btn_save') %></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

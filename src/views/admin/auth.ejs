@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QRipy管理</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <link rel="stylesheet" href="<%= appUrl %>/admin/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="<%= appUrl %>/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="<%= appUrl %>/admin/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="<%= appUrl %>/admin/dist/css/custom.css" />
+  </head>
+
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a href="<%= appUrl %>/admin">
+            <img src="<%= appUrl %>/images/logo.svg" alt="Logo" class="logo" />
+          </a>
+        </div>
+        <div class="card-body">
+          <form action="<%= appUrl %>/admin/auth" method="post" id="auth">
+            <div class="form-group mb-4">
+              <label>ユーザー名</label>
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" autocomplete="username" placeholder="ユーザー名" name="username" id="username" />
+                <div class="input-group-append">
+                  <div class="input-group-text bg-white">
+                    <span class="fas fa-envelope fa-fw"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label>パスワード</label>
+              <div class="input-group input-group-lg">
+                <input type="password" class="form-control" autocomplete="current-password" placeholder="パスワード" name="password" id="password" />
+                <div class="input-group-append">
+                  <div class="input-group-text bg-white">
+                    <span class="fas fa-lock fa-fw"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" id="submit-login-button" class="btn btn-primary btn-block btn-lg">ログイン</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      var appUrl = '<%= appUrl %>'
+    </script>
+    <script src="<%= appUrl %>/admin/plugins/jquery/jquery.min.js"></script>
+    <script src="<%= appUrl %>/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= appUrl %>/admin/dist/js/adminlte.min.js"></script>
+    <script src="<%= appUrl %>/admin/dist/js/sweetalert2.all.min.js"></script>
+    <script src="<%= appUrl %>/admin/dist/js/main.js"></script>
+    <script src="<%= appUrl %>/admin/dist/js/pages/auth.js"></script>
+  </body>
+</html>

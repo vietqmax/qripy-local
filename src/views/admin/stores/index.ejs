@@ -1,0 +1,40 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <a href="<%= `${appUrl}/admin/store/create` %>" class="btn btn-success"><i class="fas fa-plus mr-1"></i><%= messageJapan.btnCreateNew %></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="d-flex">
+      <div class="card" id="index">
+        <div class="card-header p-2" id="search">
+          <div class="row">
+            <div class="col-md-8">
+              <input type="text" id="search_store" class="search-item form-control form-control-sm" placeholder="名前" />
+            </div>
+          </div>
+        </div>
+        <div class="card-body table-responsive p-0">
+          <table id="store-list-table" class="table text-nowrap p-0">
+            <thead>
+              <tr class="text-center">
+                <th>名前</th>
+                <th>電話番号</th>
+                <th>国</th>
+                <th>アクション</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-footer p-2">
+          <ul class="pagination pagination-sm float-right m-0"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

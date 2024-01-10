@@ -1,0 +1,152 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <a href="<%= `${appUrl}/admin/store` %>" class="btn btn-dark"
+          ><i class="fas fa-arrow-left mr-1"></i><%= messageJapan.btnBack %></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <form id="create-store-form" method="POST">
+          <input type="hidden" name="country_name" id="country_name" />
+          <input type="hidden" name="native_language_code" id="native_language_code" />
+          <div class="card card-secondary">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="name">名前</label>
+                    <input type="text" name="name" id="name" class="form-control" />
+                    <div id="name-status" class="invalid-message"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="phone">電話番号</label>
+                    <input type="text" name="phone" id="phone" onkeydown="return isNumberKey(event)" class="form-control" />
+                    <div id="phone-status" class="invalid-message"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="name">システム利用料</label>
+                    <input
+                      type="tel"
+                      name="usage_fee"
+                      id="usage_fee"
+                      onkeydown="return isNumberKey(event)"
+                      class="form-control"
+                    />
+                    <div id="usage_fee-status" class="invalid-message"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="phone">支払方法</label>
+                    <select id="payment_method" name="payment_method" class="form-control">
+                      <option value="cash">現金</option>
+                      <option value="credit">クレジットカード</option>
+                    </select>
+                    <div id="payment_method-status" class="invalid-message"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="address">住所</label>
+                    <input type="text" name="address" id="address" class="form-control" />
+                    <div id="address-status" class="invalid-message"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="country_code">国 </label>
+                    <select id="country_code" name="country_code" class="form-control select-beauty">
+                      <option></option>
+                      <% regions.forEach((region) => { %>
+                      <option value="<%=region.code%>"><%=region.name%></option>
+                      <% }) %>
+                    </select>
+                    <div id="country_code-status" class="invalid-message"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="address">通貨</label>
+                    <select id="currency" name="currency" class="form-control select-beauty-no-search"></select>
+                    <div id="currency-status" class="invalid-message"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label class="required" for="region">タイムゾーン </label>
+                    <select id="timezone" name="timezone" class="form-control select-beauty-no-search"></select>
+                    <div id="timezone-status" class="invalid-message"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label for="other_language">第二言語</label>
+                    <select id="other_language" name="other_language[]" multiple class="form-control select-beauty-no-search">
+                      <option value="ja">Japanese</option>
+                      <option value="vi">Vietnam</option>
+                      <option value="ko">Korean</option>
+                      <option value="en">English</option>
+                    </select>
+                    <div id="other_language-status" class="invalid-message"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="row">
+                    <div class="col-12 col-sm-6">
+                      <div class="form-group">
+                        <label class="required" for="email">メールアドレス </label>
+                        <input type="email" name="email" id="email" class="form-control" autocomplete="false" />
+                        <div id="email-status" class="invalid-message"></div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="form-group">
+                        <label class="required" for="password">パスワード </label>
+                        <input type="password" name="password" id="password" class="form-control" />
+                        <div id="password-status" class="invalid-message"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 is-translate d-none">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="is_translate" id="is_translate" />
+                      <label for="is_translate">翻訳する</label>
+                    </div>
+                    <div id="password-status" class="invalid-message"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button id="submit-store" class="btn btn-success float-right">
+                <i class="fas fa-save mr-1"></i>
+                <%= messageJapan.btnCreate %>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

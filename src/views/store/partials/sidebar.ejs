@@ -1,0 +1,68 @@
+<nav class="l-header__nav l-global-nav" id="global_nav">
+  <div class="select sp-only">
+    <select>
+      <option value=""><%= __('store_header_option_store') %></option>
+      <option value=""><%= __('store_header_option_daily') %></option>
+    </select>
+  </div>
+  <div class="select sp-only">
+    <p class="language"><i class="fa-solid fa-globe"></i><span><%= __('store_header_lb_language') %></span></p>
+    <div class="custom-arrow">
+      <select class="lang">
+        <% auth?.store?.all_language?.forEach(element => { %>
+        <option value="<%= element %>" <%= element === lang ? 'selected' : '' %>>
+          <%= __(`store_header_option_${element}`) %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+  <ul class="l-global-nav__menu" id="accordion">
+    <li id="menu_dashboard">
+      <a href="<%= `${appUrl}/store/${lang}/dashboard` %>"><span><%= __('store_sidebar_management_top') %></span></a>
+    </li>
+    <li class="dropdown-parent not-show">
+      <button><span><%= __('store_sidebar_management_menu') %></span><i class="fa-solid fa-angle-down"></i></button>
+      <ul class="dropdown-ul">
+        <li id="menu_dishes">
+          <a href="<%= `${appUrl}/store/${lang}/dish` %>"><span><%= __('store_sidebar_dishes_list') %></span></a>
+        </li>
+        <li id="menu_dishes_create">
+          <a href="<%= `${appUrl}/store/${lang}/dish/create` %>"><span><%= __('store_sidebar_registration_dish') %></span></a>
+        </li>
+        <li id="menu_categories">
+          <a href="<%= `${appUrl}/store/${lang}/category` %>"><span><%= __('store_sidebar_management_category') %></span></a>
+        </li>
+        <li id="menu_menu">
+          <a href="<%= `${appUrl}/store/${lang}/menu` %>"><span><%= __('store_sidebar_menu_list') %></span></a>
+        </li>
+        <li id="menu_menu_create">
+          <a href="<%= `${appUrl}/store/${lang}/menu/create` %>"><span><%= __('store_sidebar_registration_menu') %></span></a>
+        </li>
+        <li id="menu_dish_options">
+          <a href="<%= `${appUrl}/store/${lang}/dish-option` %>"><span><%= __('store_sidebar_dish_options') %></span></a>
+        </li>
+        <li id="menu_related_dishes">
+          <a href="<%= `${appUrl}/store/${lang}/related-dish` %>"><span><%= __('store_sidebar_related_dishes') %></span></a>
+        </li>
+        <li id="menu_menu_display-time">
+          <a href="<%= `${appUrl}/store/${lang}/menu/display-time` %>"><span><%= __('store_sidebar_menu_display_time_management') %></span></a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-parent not-show">
+      <button><span><%= __('store_sidebar_store_settings') %></span><i class="fa-solid fa-angle-down"></i></button>
+      <ul class="dropdown-ul">
+        <li id="tax-settings">
+          <a href="<%= `${appUrl}/store/${lang}/tax-settings` %>"><span><%= __('store_sidebar_consumption_tax_settings') %></span></a>
+        </li>
+        <li>
+          <a href=""><span><%= __('store_sidebar_store_basic_information') %></span></a>
+        </li>
+        <li>
+          <a href=""><span><%= __('store_sidebar_language_settings') %></span></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,52 @@
+<header class="l-header u-clr-wh u-bg-main-dark">
+  <div class="l-header__inner">
+    <div class="l-header__toggle" id="toggle_btn">
+      <span></span>
+      <span></span>
+      <p class="tgl-p"></p>
+    </div>
+    <div class="l-header-top">
+      <div class="box-left">
+        <img src="<%= appUrl %>/images/logo_white.svg" alt="Logo" class="brand-image" />
+        <div class="select pc-only">
+          <select id="select-header" lang="<%= lang %>">
+            <option value="store" <%= jsPath.includes('cashiers') ? 'selected' : '' %>>
+              <%= __('store_header_option_store') %>
+            </option>
+            <option value="cashier" <%= jsPath.includes('cashiers') ? 'selected' : '' %>>
+              <%= __('store_header_option_daily') %>
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="box-right">
+        <div class="select pc-only">
+          <p class="language"><i class="fa-solid fa-globe"></i><span><%= __('store_header_lb_language') %></span></p>
+          <!-- if there is p have class language tag then add div have class custom-arrow ta  -->
+          <div class="custom-arrow">
+            <select class="lang select-lang-header" lang="<%= lang %>">
+              <% auth?.store?.all_language?.forEach(element => { %>
+              <option value="<%= element %>" <%= element === lang ? 'selected' : '' %>>
+                <%= __(`store_header_option_${element}`) %>
+              </option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+        <div class="info-user">
+          <i class="fa-solid fa-user"></i>
+          <span><%= auth?.store?.name %></span>
+          <ul class="log-out">
+            <li><a href="<%= appUrl %>/store/auth/logout"><%= __('store_header_lb_logout') %></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  var appUrl = '<%= appUrl %>'
+  var langCurrent = '<%= lang %>'
+  var isTranslateRaw = '<%= auth.store.is_translate %>';
+  var isTranslate = typeof isTranslateRaw === 'string' ? parseInt(isTranslateRaw, 10) : isTranslateRaw;
+</script>

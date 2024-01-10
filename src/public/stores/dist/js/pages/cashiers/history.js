@@ -1,0 +1,3 @@
+/**
+ * Cashier History Handle
+ */

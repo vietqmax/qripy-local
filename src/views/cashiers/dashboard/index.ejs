@@ -1,0 +1,137 @@
+<main class="main-cnt main-half">
+  <section class="section-select-table">
+    <div class="select-table">
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Table 1</h4>
+          <div class="price"><span>2 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+          <div class="icon"><i class="fa-solid fa-money-bill"></i><i class="fa-solid fa-bell"></i></div>
+        </div>
+        <div class="total">
+          <span><%= __('cashier_page_dashboard_remaining_eating_time') %></span>
+          <div class="point">
+            <strong>105</strong>
+            <span><%= __('cashier_page_dashboard_minutes') %></span>
+          </div>
+        </div>
+      </a>
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Table 2</h4>
+          <div class="price"><span>2 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+          <div class="icon">
+            <i class="fa-solid fa-money-bill"></i>
+          </div>
+        </div>
+        <div class="total">
+          <span><%= __('cashier_page_dashboard_remaining_eating_time') %></span>
+          <div class="point">
+            <strong>105</strong>
+            <span><%= __('cashier_page_dashboard_minutes') %></span>
+          </div>
+        </div>
+      </a>
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Table 3</h4>
+          <div class="price"><span>2 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+          <div class="icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+        </div>
+      </a>
+      <a class="table-item dont-use js-modalOpen" href="<%= `${appUrl}/cashier/${lang}/table` %>" data-target="modalbook">
+        <div class="box-content">
+          <h4>Table 4</h4>
+        </div>
+      </a>
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Counter 1</h4>
+          <div class="price"><span>2 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+        </div>
+      </a>
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Counter 2</h4>
+          <div class="price"><span>2 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+        </div>
+      </a>
+      <a class="table-item dont-use js-modalOpen" href="<%= `${appUrl}/cashier/${lang}/table` %>" data-target="modalbook">
+        <div class="box-content">
+          <h4>Counter 3</h4>
+        </div>
+      </a>
+      <a class="table-item" href="<%= `${appUrl}/cashier/${lang}/table` %>">
+        <div class="box-content">
+          <h4>Private room</h4>
+          <div class="price"><span>5 <%= __('cashier_page_dashboard_people') %></span> <span>3,650 Yen</span></div>
+        </div>
+        <div class="total">
+          <span><%= __('cashier_page_dashboard_remaining_eating_time') %></span>
+          <div class="point">
+            <strong>105</strong>
+            <span><%= __('cashier_page_dashboard_minutes') %></span>
+          </div>
+        </div>
+      </a>
+      <a class="table-item dont-use js-modalOpen" href="<%= `${appUrl}/cashier/${lang}/table` %>" data-target="modalbook">
+        <div class="box-content">
+          <h4>Terrace</h4>
+        </div>
+      </a>
+    </div>
+  </section>
+  <div class="modal book-modal js-modalCnt" id="modalbook">
+    <div class="modal__wrap">
+      <button type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="error-modal__cnt">
+        <h4>Table 4<span><%= __('cashier_page_dashboard_prepare') %></span></h4>
+        <div class="person-block">
+          <span class="person-text"><%= __('cashier_page_dashboard_number_of_people') %>：</span>
+          <div class="box-input">
+            <span><%= __('cashier_page_dashboard_adult') %></span>
+            <input type="number" />
+            <span><%= __('cashier_page_dashboard_people') %></span>
+          </div>
+          <div class="box-input">
+            <span><%= __('cashier_page_dashboard_child') %></span>
+            <input type="number" />
+            <span><%= __('cashier_page_dashboard_people') %></span>
+          </div>
+        </div>
+        <div class="select-options">
+          <div class="option">
+            <div class="box-checkb">
+              <input type="checkbox" id="checkb1" />
+              <label for="checkb1">Regular menu</label>
+            </div>
+          </div>
+          <div class="option">
+            <div class="box-checkb">
+              <input type="checkbox" id="checkb2" />
+              <label for="checkb2">Buffet for 6000 Yen</label>
+            </div>
+            <div class="box-checkb">
+              <input type="checkbox" id="checkb3" />
+              <label for="checkb3">Buffet for 5000 Yen</label>
+            </div>
+            <div class="box-checkb">
+              <input type="checkbox" id="checkb4" />
+              <label for="checkb4">All can drink</label>
+            </div>
+          </div>
+        </div>
+        <div class="share">
+          <input type="checkbox" id="checkb6" />
+          <label for="checkb5"><%= __('cashier_page_dashboard_share_to_tablet_device') %></label>
+        </div>
+        <div class="text-center">
+          <button class="c-btn"><span><%= __('cashier_page_dashboard_btn_QR_code_issue') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

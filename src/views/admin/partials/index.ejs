@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('head') %>
+  </head>
+
+  <body class="hold-transition sidebar-mini layout-navbar-fixed">
+    <div class="wrapper">
+      <%- include('header') %> <%- include('sidebar') %>
+      <div class="content-wrapper"><%- include(`../../admin/${content}`) %></div>
+      <%- include('footer') %>
+    </div>
+    <%- include('scripts') %>
+  </body>
+</html>

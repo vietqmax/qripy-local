@@ -1,0 +1,81 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_tax_settings_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14"><%= __('store_page_tax_settings_title') %></p>
+  </div>
+  <section class="section-tax-setting">
+    <h4><%= __('store_page_tax_settings_title') %></h4>
+    <div class="tax-setting">
+      <table>
+        <thead>
+          <th class="name"><%= __('store_page_tax_settings_name') %></th>
+          <th class="tax-rate"><%= __('store_page_tax_settings_tax_rate') %></th>
+          <th class="rule"><%= __('store_page_tax_settings_rules') %></th>
+          <th class="edit"></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VAT</td>
+            <td>10％</td>
+            <td>
+              <span><%= __('store_page_tax_settings_after_the_decimal_point') %></span>
+              <span class="point"><%= __('store_page_tax_settings_round') %></span>
+            </td>
+            <th>
+              <button type="button" class="option"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+              <div class="box-option">
+                <button type="button" class="edit">
+                  <i class="fa-solid fa-pen"></i><span><%= __('store_page_tax_settings_btn_edit') %></span>
+                </button>
+                <button type="button" class="edit">
+                  <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_tax_settings_btn_delete') %></span>
+                </button>
+              </div>
+            </th>
+          </tr>
+          <tr class="add-item">
+            <td>
+              <input type="text" />
+            </td>
+            <td><input type="number" /><span>％</span></td>
+            <td>
+              <span><%= __('store_page_tax_settings_after_the_decimal_point') %></span>
+              <select name="" id="">
+                <option value=""><%= __('store_page_tax_settings_floor') %></option>
+                <option value=""><%= __('store_page_tax_settings_round') %></option>
+                <option value=""><%= __('store_page_tax_settings_ceiling') %></option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="add-new">
+        <i class="fa-solid fa-plus"></i><span><%= __('store_page_tax_settings_btn_add_new') %></span>
+      </button>
+      <div class="text-center">
+        <button type="button" class="c-btn c-btn-custom"><span><%= __('store_page_tax_settings_btn_save') %></span></button>
+      </div>
+    </div>
+  </section>
+  <section class="section-setting-display">
+    <h4><%= __('store_page_tax_settings_display_setting') %></h4>
+    <div class="setting">
+      <ul>
+        <li>
+          <input type="radio" name="group1" id="checkb1" checked />
+          <label for="checkb1"><%= __('store_page_tax_settings_including_tax') %></label>
+        </li>
+        <li>
+          <input type="radio" name="group1" id="checkb2" />
+          <label for="checkb2"><%= __('store_page_tax_settings_excluding_tax') %></label>
+        </li>
+      </ul>
+      <div class="text-center">
+        <button type="button" class="c-btn c-btn-custom"><span><%= __('store_page_tax_settings_btn_save') %></span></button>
+      </div>
+    </div>
+  </section>
+</main>

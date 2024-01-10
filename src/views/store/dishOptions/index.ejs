@@ -1,0 +1,24 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="<%= `${appUrl}/store/${lang}/dashboard` %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_dish_option_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_dish_option_title_main') %></p>
+  </div>
+  <section class="section-group-list" id="dish-option-list">
+    <h4><%= __('store_page_dish_option_title_main') %></h4>
+    <div class="group-list">
+      <h5><%= __('store_page_dish_option_name') %></h5>
+      <ul class="list-ul"></ul>
+      <!-- <div class="pagination-init"></div> -->
+      <button class="add-new" type="button">
+        <a href="<%= `${appUrl}/store/${lang}/dish-option/create` %>">
+          <i class="fa-solid fa-plus"></i><span class="ml-05"><%= __('store_page_dish_option_btn_create_new') %></span>
+        </a>
+      </button>
+      <!-- <div class="text-center">
+        <button class="c-btn btn-index-save" disabled><span><%= __('store_page_dish_option_btn_save') %></span></button>
+      </div> -->
+    </div>
+  </section>
+</main>

@@ -1,0 +1,82 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_display_time_btn_back') %></span>
+    </a>
+    <p class="u-fz-16-xl-14"><%= __('store_page_display_time_title') %></p>
+  </div>
+  <section class="section-display-time">
+    <h4><%= __('store_page_display_time_title') %></h4>
+    <ul class="display-time">
+      <li class="time-item">
+        <button type="button" class="box-top">
+          <span>Group A menu</span>
+          <p class="checkb">
+            <input type="checkbox" id="checkb2-1" />
+            <label for="checkb2-1"><%= __('store_page_display_time_always_on_display') %></label>
+          </p>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="box-bottom">
+          <div class="box-time">
+            <div class="box-time-item">
+              <input type="number" min="0" max="23" class="time-h" value="11" />
+              <span>:</span>
+              <input type="number" min="0" max="59" class="time-m" value="00" />
+            </div>
+            <span>～</span>
+            <div class="box-time-item">
+              <input type="number" min="0" max="23" class="time-h" value="06" />
+              <span>:</span>
+              <input type="number" min="0" max="59" class="time-m" value="00" />
+            </div>
+          </div>
+
+          <ul>
+            <li>
+              <input type="checkbox" id="checkb2-2" />
+              <label for="checkb2-2"><%= __('store_page_display_time_monday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-3" />
+              <label for="checkb2-3"><%= __('store_page_display_time_tuesday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-4" />
+              <label for="checkb2-4"><%= __('store_page_display_time_wednesday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-5" />
+              <label for="checkb2-5"><%= __('store_page_display_time_thursday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-6" />
+              <label for="checkb2-6"><%= __('store_page_display_time_friday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-7" />
+              <label for="checkb2-7"><%= __('store_page_display_time_saturday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-8" />
+              <label for="checkb2-8" class="u-clr-rd"><%= __('store_page_display_time_sunday') %></label>
+            </li>
+            <li>
+              <input type="checkbox" id="checkb2-9" />
+              <label for="checkb2-9" class="u-clr-rd"><%= __('store_page_display_time_holiday') %></label>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="text-center">
+      <button type="button" class="c-btn">
+        <span><%= __('store_page_display_time_btn_save') %></span>
+      </button>
+    </div>
+  </section>
+</main>
+<script>
+  var content = '<%= content %>'
+  console.log(content.includes('display-time'))
+</script>

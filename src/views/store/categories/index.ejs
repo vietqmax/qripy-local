@@ -1,0 +1,71 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn"><i class="fa-solid fa-chevron-left"></i><span><%= __('store_page_category_btn_back') %></span></a>
+    <p class="u-fz-16-xl-14 u-fw-b"><%= __('store_page_category_title_main') %></p>
+  </div>
+
+  <section class="section-menu section-menu-options section-main-cate">
+    <div class="menu-options-detail">
+      <div class="breadcrumb">
+        <a href="" class="item"><%= __('store_page_category_name_main') %></a>
+      </div>
+      <div class="box-choices">
+        <h4><%= __('store_page_category_name') %></h4>
+        <ul class="box-item-choices">
+          <li>
+            <button type="button" class="change-position"><i class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
+            <p>Category 1</p>
+            <button type="button" class="option"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <div class="box-option">
+              <button type="button" class="edit">
+                <i class="fa-solid fa-pen"></i><span><%= __('store_page_category_btn_edit') %></span>
+              </button>
+              <button type="button" class="edit">
+                <i class="fa-solid fa-trash-can"></i><span><%= __('store_page_category_btn_delete') %></span>
+              </button>
+              <button type="button" class="edit">
+                <i class="fa-solid fa-plus"></i><span><%= __('store_page_category_btn_create_subcategory') %></span>
+              </button>
+            </div>
+          </li>
+        </ul>
+        <div class="translate">
+          <div class="translate-item">
+            <input type="text" onblur="displayTranslate('translate-1')" />
+            <button type="button" class="c-btn c-translate js-modalOpen translate-1 d-none" data-target="modaltranslate">
+              <span><%= __('store_page_category_btn_translate') %></span>
+              <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <button type="button" class="add-new">
+          <i class="fa-solid fa-plus"></i><span><%= __('store_page_category_btn_add') %></span>
+        </button>
+        <div class="text-center">
+          <button type="button" class="c-btn c-btn-custom"><span><%= __('store_page_category_btn_save') %></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal translate-modal js-modalCnt" id="modaltranslate">
+    <div class="modal__wrap">
+      <button type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <h4><%= __('store_page_category_translate') %></h4>
+        <% auth?.store?.all_language.forEach(element => {if (!(auth?.store?.lang === element)){ %>
+        <div class="item">
+          <label for=""><%= __(`store_header_option_${element}`) %></label>
+          <input type="text" />
+        </div>
+        <% }}); %>
+        <div class="group-btn">
+          <button type="button" class="cancel-btn"><span><%= __('store_page_category_btn_cancel') %></span></button>
+          <button type="button" class="c-btn"><span><%= __('store_page_category_btn_save') %></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

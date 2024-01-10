@@ -1,0 +1,254 @@
+<main class="main-cnt main-half">
+  <div class="back-link">
+    <a href="" class="back-btn"><i class="fa-solid fa-chevron-left"></i><span>戻る</span></a>
+    <p class="u-fz-16-xl-14 u-fw-b">メニュー登録</p>
+  </div>
+  <section class="section-menu-cashier">
+    <h2>メニュー一覧</h2>
+    <div class="box-menu">
+      <div class="box-item">
+        <label for="">店舗データ</label>
+        <div class="custom-arrow">
+          <input type="text" />
+        </div>
+      </div>
+      <div class="box-item">
+        <label for="">店舗データ</label>
+        <div class="custom-arrow">
+          <select name="" id="">
+            <option value="">選択肢：</option>
+            <option value="">メインカテゴリ名</option>
+          </select>
+        </div>
+      </div>
+      <button class="c-btn"><span>検索</span></button>
+    </div>
+  </section>
+  <section class="section-provided">
+    <div class="sort">
+      <h4>並べ替え</h4>
+      <div class="sort-box">
+        <div class="sort-item">
+          <select>
+            <option value="">あいうえお順</option>
+          </select>
+        </div>
+        <div class="sort-item small">
+          <select>
+            <option value="">昇順</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="section-menu section-list">
+      <div class="menu-detail">
+        <div class="box-menu-detail">
+          <div class="table-food">
+            <table>
+              <thead>
+                <th class="img-food">画像</th>
+                <th class="name-food">メニュー名</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="img-food">
+                    <p class="js-modalOpen" data-target="modalmenu">
+                      <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                    </p>
+                  </td>
+                  <td class="name-food">
+                    <div href="">
+                      <span class="js-modalOpen" data-target="modalmenu"
+                        >ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span
+                      >
+                    </div>
+                    <div class="btn-checkb">
+                      <div class="btn-wrap">
+                        <input type="checkbox" name="checkbox" checked />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="img-food">
+                    <p class="js-modalOpen" data-target="modalmenu">
+                      <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                    </p>
+                  </td>
+                  <td class="name-food">
+                    <div href="">
+                      <span class="js-modalOpen" data-target="modalmenu"
+                        >ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span
+                      >
+                    </div>
+                    <div class="btn-checkb">
+                      <div class="btn-wrap">
+                        <input type="checkbox" name="checkbox" checked />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="img-food">
+                    <p class="js-modalOpen" data-target="modalmenu">
+                      <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                    </p>
+                  </td>
+                  <td class="name-food">
+                    <div href="">
+                      <span class="js-modalOpen" data-target="modalmenu"
+                        >ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span
+                      >
+                    </div>
+                    <div class="btn-checkb">
+                      <div class="btn-wrap">
+                        <input type="checkbox" name="checkbox" checked />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="img-food">
+                    <p class="js-modalOpen" data-target="modalmenu">
+                      <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+                    </p>
+                  </td>
+                  <td class="name-food">
+                    <div href="">
+                      <span class="js-modalOpen" data-target="modalmenu"
+                        >ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span
+                      >
+                    </div>
+                    <div class="btn-checkb">
+                      <div class="btn-wrap">
+                        <input type="checkbox" name="checkbox" checked />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li>
+                  <a href="" class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+                </li>
+                <li class="current"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <span>...</span>
+                <li><a href="">8</a></li>
+                <li>
+                  <a href="" class="next"><i class="fa-solid fa-chevron-right"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal menu-modal js-modalCnt" id="modalmenu">
+    <div class="modal__wrap">
+      <button type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">アルコール</a>
+          <a href="" class="item">サブカテゴリ</a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">酎ハイ</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" />
+              </div>
+            </div>
+            <span class="name">ビール</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">ワイン</span>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <span class="name">ワイン</span>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button class="js-modalClose"><span>キャンセル</span></button>
+          <button class="c-btn js-modalOpen" data-target="modalmenu1"><span>保存</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal menu-modal food-modal js-modalCnt" id="modalmenu1">
+    <div class="modal__wrap">
+      <button type="button" class="modal__close js-modalClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="bell-modal__cnt">
+        <div class="breadcrumb">
+          <a href="" class="item">アルコール</a>
+          <a href="" class="item">サブカテゴリ</a>
+          <a href="" class="item">メニュー</a>
+        </div>
+        <div class="box-item">
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="btn-checkb">
+              <div class="btn-wrap">
+                <input type="checkbox" name="checkbox" checked />
+              </div>
+            </div>
+            <div class="info">
+              <img src="<%= appUrl %>/stores/img/food/demo-food.jpg" alt="" />
+              <span>ラスカルお子様つつみつつみ焼ハンバーグ（ラスカルマグネット付き）</span>
+            </div>
+          </div>
+        </div>
+        <div class="group-btn">
+          <button class="js-modalClose"><span>キャンセル</span></button>
+          <button class="c-btn"><span>保存</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

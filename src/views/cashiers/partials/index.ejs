@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('../../store/partials/head') %>
+  </head>
+
+  <body class="cashier">
+    <div class="wrapper">
+      <%- include('../../store/partials/header') %> <%- include('aside') %>
+      <div class="content-wrapper"><%- include(`../../cashiers/${content}`) %></div>
+      <%- include('../../store/partials/footer') %>
+    </div>
+    <%- include('../../store/partials/scripts') %>
+  </body>
+</html>
