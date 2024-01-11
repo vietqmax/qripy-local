@@ -38,6 +38,6 @@ try {
 } catch (error) {
   console.error('Unable to connect to the database:', error)
 }
-// db.Category.sync({ force: true })
+// sequelize.sync({ alter: true })
 // db.CategoryTranslate.sync({ force: true })
 module.exports = db

@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { validationResult } = require('express-validator')
-const { groupValidation } = require('../../ultils/common')
+const { groupValidation, translateValidation } = require('../../ultils/common')
 const { Op } = require('sequelize')
 const db = require('../../models')
 const paginate = require('express-paginate')
@@ -132,39 +132,51 @@ const dishOptionCreate = async (req, res) => {
     if (errors.length > 0) {
       return res.status(422).json({
         status: false,
-        errors: groupValidation(errors, res),
+        errors: await translateValidation(errors, res),
       })
     }
     const store = res.locals.auth.store
     const dataCreate = req.body
     const dishOptionNames = dataCreate.dish_option_name
     const dishOptionNameDisplays = dataCreate.dish_option_name_display
+    let dishOptionNamesTranslate = null
+    let dishOptionNameDisplaysTranslate = null
+    if (store.other_language) {
+      dishOptionNamesTranslate = dataCreate.dish_option_name_translate
+      dishOptionNameDisplaysTranslate = dataCreate.dish_option_name_display_translate
+    }
     const items = dataCreate.items
     // Create dish option
     const dishOption = await db.DishOption.create({ store_id: store.id, display: dataCreate.display })
     // Create dish option translate
-    for (const langCode in dishOptionNames) {
-      const dishOptionName = dishOptionNames[langCode]
-      const dishOptionNameDisplay = dishOptionNameDisplays[langCode]
-      let type = 'option'
-      if (langCode === store.lang) {
-        type = 'main'
+    await db.DishOptionTranslate.create({
+      store_id: store.id,
+      dish_option_id: dishOption.id,
+      name: dishOptionNames,
+      label: dishOptionNameDisplays,
+      language_code: store.lang,
+      type: 'main',
+    })
+    if (dishOptionNamesTranslate && dishOptionNameDisplaysTranslate) {
+      for (const langCode in dishOptionNamesTranslate) {
+        const dishOptionName = dishOptionNamesTranslate[langCode]
+        const dishOptionNameDisplay = dishOptionNameDisplaysTranslate[langCode]
+        await db.DishOptionTranslate.create({
+          store_id: store.id,
+          dish_option_id: dishOption.id,
+          name: dishOptionName ? dishOptionName : null,
+          label: dishOptionNameDisplay ? dishOptionNameDisplay : null,
+          language_code: langCode,
+          type: 'option',
+        })
       }
-      await db.DishOptionTranslate.create({
-        store_id: store.id,
-        dish_option_id: dishOption.id,
-        name: dishOptionName,
-        label: dishOptionNameDisplay,
-        language_code: langCode,
-        type: type,
-      })
     }
     // Create dish option item
     items.forEach(async (item, index) => {
       const dishOptionItem = await db.DishOptionItem.create({
         store_id: store.id,
         dish_option_id: dishOption.id,
-        img: item.img === '' ? null : item.img,
+        img: item.img ? item.img : null,
         sort_order: index,
       })
       const itemNames = item.text
@@ -178,7 +190,7 @@ const dishOptionCreate = async (req, res) => {
           store_id: store.id,
           dish_option_id: dishOption.id,
           dish_option_item_id: dishOptionItem.id,
-          name: itemName,
+          name: itemName ? itemName : null,
           language_code: langCode,
           type: type,
         })
@@ -186,9 +198,10 @@ const dishOptionCreate = async (req, res) => {
     })
     return res.status(200).json({ title: res.__('message_notification'), message: res.__('message_create_success') })
   } catch (error) {
+    console.log(error)
     res.status(400).json({
       status: false,
-      message: res.__('message_error_translate'), //error.message
+      message: res.__('message_error_translate'),
     })
   }
 }
@@ -388,25 +401,6 @@ const dishOptionDelete = async (req, res) => {
   }
 }
 
-const dishOptionValidationItemTranslate = async (req, res) => {
-  try {
-    const { errors } = validationResult(req)
-    if (errors.length > 0) {
-      return res.status(422).json({
-        status: false,
-        errors: errors,
-        message: res.__('validation_required'),
-      })
-    }
-    return res.status(200).json({ title: res.__('message_notification'), message: 'Success' })
-  } catch (error) {
-    res.status(400).json({
-      status: false,
-      message: res.__('message_error_translate'), //error.message
-    })
-  }
-}
-
 // Upload Img
 const uploadImg = async (req, res) => {
   try {
@@ -432,7 +426,6 @@ module.exports = {
   dishOptionCreate,
   dishOptionEditView,
   dishOptionEdit,
-  dishOptionValidationItemTranslate,
   dishOptionDelete,
   uploadImg,
 }

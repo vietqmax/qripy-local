@@ -34,15 +34,6 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   DishOption.associate = (models) => {
-    // Product.belongsToMany(models.Category, {
-    //   through: 'products_categories_foreign',
-    //   foreignKey: 'product_id',
-    //   otherKey: 'category_id',
-    //   as: 'Categories',
-    // })
-    // Product.belongsTo(models.Category, {
-    //   foreignKey: 'category_id',
-    // })
     DishOption.hasMany(models.DishOptionTranslate, {
       foreignKey: 'dish_option_id',
     })

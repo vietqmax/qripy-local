@@ -245,6 +245,7 @@
   "message_data_not_found": "Data not found",
   "message_already_exist": "Already exists",
   "message_text_translate_empty": "Please enter data before translating",
+  "message_text_translate_success": "Create successful translations",
 
   "btn_confirm": "Confirm",
   "btn_cancel": "Cancel",

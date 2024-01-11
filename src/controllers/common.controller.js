@@ -23,7 +23,11 @@ const translateText = async (req, res) => {
     if (text) {
       const result = await googleTranslates(req.query.text, source, targets)
       if (result?.status !== false) {
-        return res.status(200).json({ status: true, data: result.data })
+        return res.status(200).json({
+          status: true,
+          message: i18n.__({ phrase: 'message_text_translate_success', locale: langCurrent }),
+          data: result.data,
+        })
       } else {
         return res.status(400).json({
           status: false,

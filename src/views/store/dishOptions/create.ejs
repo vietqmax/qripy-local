@@ -13,10 +13,10 @@
           <div class="box-item">
             <label for="dish_option_name"><%= __('store_page_dish_option_name') %></label>
             <div class="custom-arrow">
-              <input type="text" name="dish_option_name[<%= auth.store.lang %>]" id="dish_option_name" />
-              <% if(auth.store.is_translate && auth.store.other_language) { %>
+              <input type="text" name="dish_option_name" id="dish_option_name" />
+              <% if(auth.store.other_language) { %>
               <% auth.store.other_language.forEach(element => { %>
-              <input type="hidden" name="dish_option_name[<%= element %>]" class="dish_option_name_translate" />
+              <input type="hidden" name="dish_option_name_translate[<%= element %>]" class="dish_option_name_translate" />
               <% }) %>
               <% } %>
             </div>
@@ -33,12 +33,18 @@
                   <p><%= __('store_page_dish_option_name_display') %></p>
                 </th>
                 <td>
-                  <input type="text" name="dish_option_name_display[<%= auth.store.lang %>]" id="dish_option_name_display" />
-                  <% if(auth.store.is_translate) { %>
-                  <button type="button" class="c-btn c-translate js-modalOpen dish_option_name_display" data-target="dish_option_name_display_translate" disabled>
-                    <span><%= __('store_page_dish_option_btn_translate') %></span>
-                    <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" />
-                  </button>
+                  <input type="text" name="dish_option_name_display" id="dish_option_name_display" />
+                  <% if(auth.store.other_language) { %>
+                  <div class="btn-group">
+                    <button type="button" class="c-btn c-translate btn-dish-option-name-display-translate" disabled>
+                      <span><%= __('store_page_dish_option_btn_translate') %></span>
+                      <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" />
+                    </button>
+                    <button type="button" class="btn-list js-modalOpen mt-15" data-target="dish_option_name_display_translate" disabled>
+                      <i class="fa-solid fa-list" aria-hidden="true"></i>
+                      <span>View</span>
+                    </button>
+                  </div>
                   <% } %>
                 </td>
               </tr>
@@ -62,10 +68,14 @@
           <div class="translate">
             <div class="translate-item">
               <input type="text" name="dish_option_item_name[<%= auth.store.lang %>]" id="dish_option_item_name" class="get_dish_option_item_name" />
-              <% if(auth.store.is_translate) { %>
-              <button type="button" class="c-btn c-translate js-modalOpen dish_option_item_name" data-target="dish_option_item_name_translate" disabled>
+              <% if(auth.store.other_language) { %>
+              <button type="button" class="c-btn c-translate btn-dish-option-item-name-translate" disabled>
                 <span><%= __('store_page_dish_option_btn_translate') %></span>
                 <img src="<%= appUrl %>/stores/img/icon/icon_translate.svg" alt="" />
+              </button>
+              <button type="button" class="btn-list js-modalOpen" data-target="dish_option_item_name_translate" disabled>
+                <i class="fa-solid fa-list" aria-hidden="true"></i>
+                <span>View</span>
               </button>
               <% } %>
               <button class="btn-add-item" type="button" disabled>
@@ -92,7 +102,7 @@
         </div>
       </div>
       <!-- Modal -->
-      <% if(auth.store.is_translate && auth.store.other_language) { %>
+      <% if(auth.store.other_language) { %>
       <div class="modal translate-modal js-modalCnt" id="dish_option_name_display_translate">
         <div class="modal__wrap">
           <button type="button" class="modal__close js-modalClose">
@@ -103,7 +113,7 @@
             <% auth.store.other_language.forEach(element => { %>
             <div class="item">
               <label for="dish_option_name_display_translate_<%= element %>"><%= __(`store_header_option_${element}`) %></label>
-              <input type="text" name="dish_option_name_display[<%= element %>]" id="dish_option_name_display_translate_<%= element %>" />
+              <input type="text" name="dish_option_name_display_translate[<%= element %>]" id="dish_option_name_display_translate_<%= element %>" />
             </div>
             <% }) %>
             <div class="group-btn">
@@ -115,27 +125,25 @@
       </div>
       <% } %>
     </form>
-    <% if(auth.store.is_translate && auth.store.other_language) { %>
+    <% if(auth.store.other_language) { %>
     <div class="modal translate-modal js-modalCnt" id="dish_option_item_name_translate">
       <div class="modal__wrap">
         <button type="button" class="modal__close js-modalClose">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <form action="<%= `${appUrl}/store/${lang}/dish-option/validation-item-translate` %>" method="POST">
-          <div class="bell-modal__cnt">
-            <h4><%= __('store_page_category_translate') %></h4>
-            <% auth.store.other_language.forEach(element => { %>
-            <div class="item">
-              <label for="dish_option_item_name_translate_<%= element %>"><%= __(`store_header_option_${element}`) %></label>
-              <input type="text" name="dish_option_item_name[<%= element %>]" id="dish_option_item_name_translate_<%= element %>" class="get_dish_option_item_name" />
-            </div>
-            <% }) %>
-            <div class="group-btn">
-              <button type="button" class="cancel-btn"><span><%= __('store_page_dish_option_btn_cancel') %></span></button>
-              <button type="submit" class="c-btn save-btn"><span><%= __('store_page_dish_option_btn_save') %></span></button>
-            </div>
+        <div class="bell-modal__cnt">
+          <h4><%= __('store_page_category_translate') %></h4>
+          <% auth.store.other_language.forEach(element => { %>
+          <div class="item">
+            <label for="dish_option_item_name_translate_<%= element %>"><%= __(`store_header_option_${element}`) %></label>
+            <input type="text" name="dish_option_item_name[<%= element %>]" id="dish_option_item_name_translate_<%= element %>" class="get_dish_option_item_name" />
           </div>
-        </form>
+          <% }) %>
+          <div class="group-btn">
+            <button type="button" class="cancel-btn"><span><%= __('store_page_dish_option_btn_cancel') %></span></button>
+            <button type="submit" class="c-btn js-modalClose"><span><%= __('store_page_dish_option_btn_save') %></span></button>
+          </div>
+        </div>
       </div>
     </div>
     <% } %>

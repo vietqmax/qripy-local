@@ -245,6 +245,7 @@
   "message_data_not_found": "何もデータが見つかりませんでした",
   "message_already_exist": "すでに存在しています",
   "message_text_translate_empty": "翻訳する前にデータを入力してください",
+  "message_text_translate_success": "成功する翻訳を作成する",
 
   "btn_confirm": "確認する",
   "btn_cancel": "キャンセル",

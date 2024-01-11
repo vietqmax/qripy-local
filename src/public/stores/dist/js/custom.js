@@ -135,7 +135,7 @@ function translateText(string) {
       },
       success: (response) => {
         closeLoading()
-        resolve({ status: true, data: response?.data })
+        resolve({ status: true, message: response?.message, data: response?.data })
       },
       error: (err) => {
         closeLoading()

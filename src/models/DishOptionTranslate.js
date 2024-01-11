@@ -19,14 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(191),
         allowNull: true,
-        defaultValue: null,
       },
       label: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(191),
         allowNull: true,
-        defaultValue: null,
       },
       language_code: {
         type: DataTypes.STRING(10),
@@ -47,12 +45,6 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   DishOptionTranslate.associate = (models) => {
-    // Product.belongsToMany(models.Category, {
-    //   through: 'products_categories_foreign',
-    //   foreignKey: 'product_id',
-    //   otherKey: 'category_id',
-    //   as: 'Categories',
-    // })
     DishOptionTranslate.belongsTo(models.DishOption, {
       foreignKey: 'dish_option_id',
     })

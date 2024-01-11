@@ -175,39 +175,30 @@ $(document).ready(function () {
     $(document).on('focus', '#dish_option_name', async (event) => {
       event.preventDefault()
       const e = $(event.currentTarget)
-      dishOptionNameInit = e.val()
-    })
-    $(document).on('blur', '#dish_option_name', async (event) => {
-      event.preventDefault()
-      const e = $(event.currentTarget)
-      const text = e.val()
-      if (text !== dishOptionNameInit) {
-        if ($('.dish_option_name_translate').length > 0) {
-          $('.dish_option_name_translate').val(text)
-        }
-      }
+      dishOptionNameInit = $.trim(e.val())
     })
     // Dish option name display translate
     let dishOptionNameDisplayInit
     $(document).on('focus', '#dish_option_name_display', async (event) => {
       event.preventDefault()
       const e = $(event.currentTarget)
-      dishOptionNameDisplayInit = e.val()
+      dishOptionNameDisplayInit = $.trim(e.val())
     })
     // Dish option item name translate
     let dishOptionItemNameInit
     $(document).on('focus', '#dish_option_item_name', async (event) => {
       event.preventDefault()
       const e = $(event.currentTarget)
-      dishOptionItemNameInit = e.val()
+      dishOptionItemNameInit = $.trim(e.val())
     })
     if (isTranslate) {
-      // Dish option name translate handle
+      // Dish option name display translate handle
       $(document).on('blur', '#dish_option_name_display', async (event) => {
         event.preventDefault()
         const e = $(event.currentTarget)
-        const btnTranslate = e.closest('td').find('button')
-        const text = e.val()
+        const btnTranslate = e.closest('td').find('.btn-dish-option-name-display-translate')
+        const btnList = e.closest('td').find('.btn-list')
+        const text = $.trim(e.val())
         if (text !== dishOptionNameDisplayInit) {
           try {
             const result = await translateText(text)
@@ -215,15 +206,32 @@ $(document).ready(function () {
               $(`#dish_option_name_display_translate_${key}`).val(item)
             })
             btnTranslate.prop('disabled', false)
+            btnList.prop('disabled', false)
+            toastr.success(result.message)
           } catch (error) {
             btnTranslate.prop('disabled', true)
-            await Swal.fire({
-              text: error?.message || 'Error translate API',
-              icon: 'error',
-              showConfirmButton: false,
-              timer: 2000,
-            })
+            btnList.prop('disabled', false)
+            toastr.error(error?.message || 'Error translate API')
           }
+        }
+      })
+      $(document).on('click', '.btn-dish-option-name-display-translate', async (event) => {
+        event.preventDefault()
+        const btnTranslate = $(event.currentTarget)
+        const btnList = btnTranslate.closest('td').find('.btn-list')
+        const text = $.trim(btnTranslate.closest('td').find('#dish_option_name_display').val())
+        try {
+          const result = await translateText(text)
+          $.each(result.data, (key, item) => {
+            $(`#dish_option_name_display_translate_${key}`).val(item)
+          })
+          btnTranslate.prop('disabled', false)
+          btnList.prop('disabled', false)
+          toastr.success(result.message)
+        } catch (error) {
+          btnTranslate.prop('disabled', true)
+          btnList.prop('disabled', false)
+          toastr.error(error?.message || 'Error translate API')
         }
       })
       // Dish option item name translate handle
@@ -250,48 +258,76 @@ $(document).ready(function () {
           }
         }
       })
-      // Validation item translate
-      $(document).on('submit', '#dish_option_item_name_translate form', (event) => {
-        event.preventDefault()
-        const form = $(event.currentTarget)
-        form.find('.border-red').removeClass('border-red')
-        $.ajax({
-          url: form.attr('action'),
-          type: form.attr('method'),
-          dataType: 'json',
-          data: form.serialize(),
-          beforeSend: () => {
-            openLoading()
-          },
-          success: async (response) => {
-            closeLoading()
-            closeModal('dish_option_item_name_translate')
-          },
-          error: (error) => {
-            closeLoading()
-            if (error.status === 422) {
-              $.each(error.responseJSON.errors, (key, item) => {
-                const languageCode = item.param.split('.').pop()
-                $(`#dish_option_item_name_translate_${languageCode}`).addClass('border-red')
-              })
-              $(`#${error.responseJSON.errors[0].param}`).trigger('focus')
-              toastr.error(error.responseJSON.message)
-            } else {
-              toastr.error(error.responseJSON.message)
-            }
-          },
-        })
-      })
     } else {
+      // Dish option name translate handle
+      $(document).on('change input', '#dish_option_name_display', async (event) => {
+        event.preventDefault()
+        const e = $(event.currentTarget)
+        const btnTranslate = e.closest('td').find('.btn-dish-option-name-display-translate')
+        const btnList = e.closest('td').find('.btn-list')
+        const text = e.val()
+        if (text) {
+          btnTranslate.prop('disabled', false)
+        } else {
+          btnTranslate.prop('disabled', true)
+          btnList.prop('disabled', true)
+          $('#dish_option_name_display_translate').find('input').val('')
+        }
+      })
+      $(document).on('click', '.btn-dish-option-name-display-translate', async (event) => {
+        event.preventDefault()
+        const btnTranslate = $(event.currentTarget)
+        const btnList = btnTranslate.closest('td').find('.btn-list')
+        const text = btnTranslate.closest('td').find('#dish_option_name_display').val()
+        try {
+          const result = await translateText(text)
+          $.each(result.data, (key, item) => {
+            $(`#dish_option_name_display_translate_${key}`).val(item)
+          })
+          btnTranslate.prop('disabled', false)
+          btnList.prop('disabled', false)
+          toastr.success(result.message)
+        } catch (error) {
+          btnTranslate.prop('disabled', true)
+          btnList.prop('disabled', false)
+          toastr.error(error?.message || 'Error translate API')
+        }
+      })
+      // Dish option item name translate handle
       $(document).on('change input', '#dish_option_item_name', async (event) => {
         event.preventDefault()
         const e = $(event.currentTarget)
-        const btnAll = e.closest('.translate-item').find('button')
+        const btnTranslate = e.closest('.translate-item').find('.btn-dish-option-item-name-translate')
+        const btnList = e.closest('.translate-item').find('.btn-list')
+        const btnAddItem = e.closest('.translate-item').find('.btn-add-item')
         const text = e.val()
         if (text) {
-          btnAll.prop('disabled', false)
+          btnTranslate.prop('disabled', false)
+          btnAddItem.prop('disabled', false)
         } else {
-          btnAll.prop('disabled', true)
+          btnTranslate.prop('disabled', true)
+          btnList.prop('disabled', true)
+          btnAddItem.prop('disabled', true)
+          $('#dish_option_item_name_translate').find('input').val('')
+        }
+      })
+      $(document).on('click', '.btn-dish-option-item-name-translate', async (event) => {
+        event.preventDefault()
+        const btnTranslate = $(event.currentTarget)
+        const btnList = btnTranslate.closest('.translate-item').find('.btn-list')
+        const text = btnTranslate.closest('.translate-item').find('#dish_option_item_name').val()
+        try {
+          const result = await translateText(text)
+          $.each(result.data, (key, item) => {
+            $(`#dish_option_item_name_translate_${key}`).val(item)
+          })
+          btnTranslate.prop('disabled', false)
+          btnList.prop('disabled', false)
+          toastr.success(result.message)
+        } catch (error) {
+          btnTranslate.prop('disabled', true)
+          btnList.prop('disabled', true)
+          toastr.error(error?.message || 'Error translate API')
         }
       })
     }
@@ -326,6 +362,8 @@ $(document).ready(function () {
       boxChoices.find('.drop-area .img-preview').html('')
       closeModal('dish_option_item_name_translate')
       boxChoices.find('.dish_option_item_name').prop('disabled', true)
+      boxChoices.find('.btn-dish-option-item-name-translate').prop('disabled', true)
+      boxChoices.find('.btn-list').prop('disabled', true)
       boxChoices.find('.btn-add-item').prop('disabled', true)
     })
     $(document).on('click', '#box-item-choices button.delete', async (event) => {
@@ -439,51 +477,6 @@ $(document).ready(function () {
       }
       modal.find('#dish_option_edit_item_content').attr('data-li', liId).html(htmlItems)
       openModal('dish_option_edit_item')
-    })
-    // Validation item translate
-    $(document).on('submit', '#dish_option_edit_item form', (event) => {
-      event.preventDefault()
-      const form = $(event.currentTarget)
-      const modal = $('#dish_option_edit_item')
-      const liId = modal.find('#dish_option_edit_item_content').attr('data-li')
-      const img = modal.find('.imgUrl').val()
-      const targetBox = $('#box-item-choices')
-      form.find('.border-red').removeClass('border-red')
-      $.ajax({
-        url: form.attr('action'),
-        type: form.attr('method'),
-        dataType: 'json',
-        data: form.serialize(),
-        beforeSend: () => {
-          openLoading()
-        },
-        success: async (response) => {
-          closeLoading()
-          modal.find('#dish_option_edit_item_content .item').each(function (index, element) {
-            const item = $(element)
-            const inputChange = item.find('input.get_dish_option_edit_item_name')
-            targetBox.find(`#${item.attr('data-translate-id')}`).val(inputChange.val())
-            if (item.attr('data-translate-lang') === langCurrent) {
-              targetBox.find(`#${liId} p`).html(inputChange.val())
-            }
-          })
-          targetBox.find(`#${liId} .dish_option_item_for_edit_img`).val(img)
-          closeModal('dish_option_edit_item')
-        },
-        error: (error) => {
-          closeLoading()
-          if (error.status === 422) {
-            $.each(error.responseJSON.errors, (key, item) => {
-              const languageCode = item.param.split('.').pop()
-              $(`#dish_option_edit_item_name_translate_${languageCode}`).addClass('border-red')
-            })
-            $(`#${error.responseJSON.errors[0].param}`).trigger('focus')
-            toastr.error(error.responseJSON.message)
-          } else {
-            toastr.error(error.responseJSON.message)
-          }
-        },
-      })
     })
     $(document).on('submit', '#dish-option-edit', (event) => {
       event.preventDefault()

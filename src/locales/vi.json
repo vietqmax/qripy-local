@@ -245,6 +245,7 @@
   "message_data_not_found": "Không tìm thấy dữ liệu",
   "message_already_exist": "Đã tồn tại",
   "message_text_translate_empty": "Vui lòng nhập dữ liệu trước khi dịch",
+  "message_text_translate_success": "Tạo các bản dịch thành công",
 
   "btn_confirm": "Xác nhận",
   "btn_cancel": "Hủy",

@@ -128,6 +128,12 @@
     width: 265px !important;
 }
 
+.btn-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
 .btn-add-item {
     display: flex;
     align-items: center;
@@ -140,4 +146,22 @@
     border-radius: 100px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.btn-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    background: #333333;
+    gap: 7px;
+    color: #fff;
+    height: 40px;
+    border-radius: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.mt-15 {
+    margin-top: 15px;
 }

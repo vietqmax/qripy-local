@@ -1,8 +1,8 @@
 const { nanoid } = require('nanoid')
 
 module.exports = (sequelize, DataTypes) => {
-  const DishOptionTranslate = sequelize.define(
-    'DishOptionTranslate',
+  const DishTranslate = sequelize.define(
+    'DishTranslate',
     {
       id: {
         type: DataTypes.STRING(21),
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: 'dish_option_translates',
+      tableName: 'dish_translates',
       timestamps: true,
       createdAt: 'created_at',
       updatedAt: 'updated_at',
@@ -44,17 +44,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
-  DishOptionTranslate.associate = (models) => {
-    // Product.belongsToMany(models.Category, {
-    //   through: 'products_categories_foreign',
-    //   foreignKey: 'product_id',
-    //   otherKey: 'category_id',
-    //   as: 'Categories',
-    // })
-    DishOptionTranslate.belongsTo(models.DishOption, {
-      foreignKey: 'dish_option_id',
-    })
-  }
-
-  return DishOptionTranslate
+  return DishTranslate
 }

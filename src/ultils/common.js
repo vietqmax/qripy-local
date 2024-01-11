@@ -39,6 +39,19 @@ const groupValidation = (errors, res) => {
   return groupedErrorsArray
 }
 
+const translateValidation = (errors, res) => {
+  const translateErrors = errors.map(async (error) => {
+    return {
+      param: error?.param,
+      msg: `${res.__(error.msg.i18nLabel)} ${res.__(error.msg.i18nMessage)}`,
+      value: error?.value,
+      location: error?.location,
+    }
+  })
+
+  return Promise.all(translateErrors)
+}
+
 const messageJapan = {
   /**
    * DEFAULT MESSAGE
@@ -165,6 +178,7 @@ const upload = multer({
 module.exports = {
   dateTime,
   groupValidation,
+  translateValidation,
   generatorCode,
   messageJapan,
   messageValidation,
